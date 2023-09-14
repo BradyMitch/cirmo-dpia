@@ -37,7 +37,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          path: 'src/frontend'
+          sparse-checkout: 'src/frontend'
 
       # Determine environment and suite, edit WDIO_CMD
       - name: Determine environment and suite
@@ -71,7 +71,6 @@ jobs:
         shell: bash
         run: |
            cd src/frontend
-           pwd
            npm install
            mpoPass=$mpoPass cpoPass=$cpoPass drafterPass=$drafterPass $WDIO_CMD
         
