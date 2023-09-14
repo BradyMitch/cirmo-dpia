@@ -37,9 +37,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          path: .
           sparse-checkout: |
-            src/frontend
+            src
 
       # Determine environment and suite, edit WDIO_CMD
       - name: Determine environment and suite
@@ -71,6 +70,7 @@ jobs:
       - name: Setup and Execute WebDriverIO e2e test suite
         shell: bash
         run: |
+           cd src/frontend
            npm install
            $WDIO_CMD
         
@@ -80,4 +80,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cucumber-artifact
-          path: ./test/reporter/htmlreport/
+          path: ./src/frontend/test/reporter/htmlreport/
