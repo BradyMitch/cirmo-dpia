@@ -18,7 +18,7 @@ on:
           - e2e
           - sanity
       feature:
-        description: 'Select a specific feature file to run'
+        description: 'Select a specific feature file to run (ex: MPO_ViewPIA)'
         type: string
 
 
