@@ -37,7 +37,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          sparse-checkout: 'src/frontend'
+          path: .
+          sparse-checkout: |
+            src/frontend
 
       # Determine environment and suite, edit WDIO_CMD
       - name: Determine environment and suite
