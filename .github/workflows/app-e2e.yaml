@@ -62,9 +62,8 @@ jobs:
       - name: List files in the working directory
         shell: bash
         run: |
-          ls -la
           cd src/frontend
-          ls -la
+          ls
 
 
       # Navigate to frontend dir, install dependencies, execute WebDriverIO command
