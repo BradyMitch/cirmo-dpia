@@ -28,9 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WDIO_CMD: 'npm run wdio'
-      mpoPass: QALabaug23
-      cpoPass: QALabaug23
-      drafterPass: QALabaug23
+      mpoPass: ${{ secrets.mpoPass }}
+      cpoPass: ${{ secrets.mpoPass }}
+      drafterPass: ${{ secrets.mpoPass }}
 
     steps:
       # Checkout Repository
@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            src
+            src/frontend
 
       # Determine environment and suite, edit WDIO_CMD
       - name: Determine environment and suite
@@ -59,11 +59,6 @@ jobs:
       # Echo wdio command
       - name: Echo Wdio command
         run: echo $WDIO_CMD
-
-      - name: List files in the working directory
-        shell: bash
-        run: |
-          ls
 
 
       # Navigate to frontend dir, install dependencies, execute WebDriverIO command
